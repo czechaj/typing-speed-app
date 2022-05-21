@@ -9,19 +9,17 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { useCounter } from "../../contexts/CounterContext";
 
 function Result() {
-  const { onClose } = useDisclosure();
   const { results, viewResult, setViewResult } = useCounter();
   return (
     <>
-      <Modal isOpen={viewResult} onClose={onClose}>
+      <Modal isOpen={viewResult}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Result</ModalHeader>
+          <ModalHeader color={"blue.600"}>Result</ModalHeader>
           <ModalCloseButton
             onClick={() => {
               setViewResult(false);
@@ -35,6 +33,11 @@ function Result() {
                 Total keystrokes per minute:{" "}
               </span>{" "}
               {results.keyStrokes}{" "}
+            </Text>
+            <Text>
+              {" "}
+              <span style={{ fontWeight: "bold" }}> Correctness: </span> %
+              {Math.floor(results.correctness)}{" "}
             </Text>
             <Text>
               {" "}
@@ -58,7 +61,6 @@ function Result() {
             >
               Close
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

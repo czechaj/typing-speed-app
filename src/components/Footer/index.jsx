@@ -7,12 +7,19 @@ function Footer() {
       mt={6}
       w={"100%"}
       height={"7vh"}
-      bgColor={"ThreeDShadow"}
+      bgColor={"#000000cc;"}
       color={"whitesmoke"}
       position={"fixed"}
       bottom={0}
     >
-      made by czechaj
+      made by{" "}
+      <a
+        className="footer-link"
+        href="https://github.com/czechaj"
+        target={"blank"}
+      >
+        czechaj
+      </a>
     </Box>
   );
 }

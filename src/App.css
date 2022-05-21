@@ -1,8 +1,15 @@
 .App {
   text-align: center;
   min-height: 100vh;
+  background-image: url("https://gdj-inr5u0ip5pewom.stackpathdns.com/wp-content/uploads/2012/08/minimal-background-pattern-wordpress-1.jpg");
 }
 
+.logo {
+  height: 8vh;
+  background-color: #000000cc;
+  color: white;
+
+}
 
 .input {
   margin-top: 3rem;
@@ -24,4 +31,12 @@
 
 .success {
   background-color: bisque
+}
+
+.footer-link {
+  color: rgb(191, 175, 175)
+}
+
+.footer-link:hover {
+  color: whitesmoke
 }

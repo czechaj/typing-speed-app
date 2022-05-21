@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Input, Text, Box, Center, Button } from "@chakra-ui/react";
+import { Input, Heading, Text, Box, Center, Button } from "@chakra-ui/react";
 import { useCounter } from "../../contexts/CounterContext.jsx";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Result from "../Result/index.jsx";
@@ -9,6 +9,7 @@ function Insert() {
     isPlaying,
     setIsPlaying,
     playRound,
+    activeWord,
     setPlayRound,
     setKeyStrokes,
     compareWords,
@@ -46,10 +47,18 @@ function Insert() {
   };
   return (
     <>
-      <Text visibility={`${isPlaying && "hidden"}`} fontWeight={"bold"}>
-        {" "}
-        Click to start game{" "}
-      </Text>
+      {!isPlaying ? (
+        <Box>
+          <Text fontWeight={"bold"}> Welcome</Text>
+          <Text>
+            This app will measure your typing speed. Just for now, you have to
+            press Enter after each word for accurate measurement{" "}
+          </Text>
+        </Box>
+      ) : (
+        <Heading>{activeWord}</Heading>
+      )}
+
       <Center w={"80%"} mx={"auto"} alignItems={"baseline"}>
         <form
           className="input"
@@ -76,9 +85,9 @@ function Insert() {
           size={80}
           isPlaying={isPlaying}
           onComplete={endCountDown}
-          duration={4}
-          colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-          colorsTime={[40, 28, 16, 8]}
+          duration={60}
+          colors={["#004777", "#00ff00", "#F7B801", "#A30000"]}
+          colorsTime={[60, 15, 15, 0]}
         >
           {({ remainingTime }) => remainingTime}
         </CountdownCircleTimer>

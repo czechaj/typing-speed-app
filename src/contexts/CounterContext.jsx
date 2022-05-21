@@ -30,6 +30,8 @@ const CounterProvider = ({ children }) => {
       keyStrokes: keyStrokes,
       successWords: successWords.length,
       failWords: failWords.length,
+      correctness:
+        (successWords.length / (successWords.length + failWords.length)) * 100,
     });
     const newWords = randomWords(100);
     setTurn(0);
