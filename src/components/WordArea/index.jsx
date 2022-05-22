@@ -13,6 +13,8 @@ function WordArea() {
       width={"80%"}
       textAlign={"left"}
       padding={"1rem"}
+      height={"20vh"}
+      overflow={"scroll"}
     >
       {words.map((word, key) => (
         <Box key={key} display={"inline"}>
